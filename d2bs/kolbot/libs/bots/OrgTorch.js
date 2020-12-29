@@ -335,6 +335,13 @@ function OrgTorch() {
 				}
 			}
 		};
+		
+		// Register event that allows keysets to be dropped off manually
+		addEventListener('chatmsg', function(nick, msg) {
+			if(msg === '.keys') {
+				Pickit.pickItems();
+			}
+		});
 
 		// Register event that will communicate with key hunters, go to Act 1 town and wait by stash
 		addEventListener('copydata', this.torchSystemEvent);
